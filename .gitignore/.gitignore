@@ -1,0 +1,58 @@
+body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+            <img src="assets/img/kopi.png" alt="" class="img-circle" width="80" height="80">
+            <h4>Antrian Pemesanan Kopi</h4>
+            <ol id="contoh"></ol>
+
+            <script src="assets/js/jquery.min.js"></script>
+            <script>
+        
+              var pengunjungCafe = [];
+              var genderPengunjung = [];
+              var imgLakiLaki = "<img src='assets/img/laki-laki.png' height='30'>";
+              var imgPerempuan = "<img src='assets/img/perempuan.png' height='30'>";
+              
+        
+            
+              function tambah(){
+                $('#contoh').empty(); //kosongkan element  list 
+                var nama = $("#nama").val(); // ambil data di input nama
+                var gender = $("#gender").val(); // ambil data di input nama
+                pengunjungCafe.push(nama); // tambahkann nama ke list
+                genderPengunjung.push(gender); // tambahkann nama ke list
+        
+                console.log(pengunjungCafe); // tampilkan di console hasil penambahan
+                console.log(genderPengunjung); // tampilkan di console hasil penambahan
+                  
+                  // menampilkan array yang datanya telah ditambah ke list
+                for (var i= 0; i < pengunjungCafe.length; i++ ){
+                        if(genderPengunjung[i]=="Laki-Laki"){
+                            $('#contoh').append("<li> "+pengunjungCafe[i]+" "+imgLakiLaki+ " </li>");
+                        }else{
+                            $('#contoh').append("<li> "+pengunjungCafe[i]+" "+imgPerempuan+ " </li>");
+                        }
+                }
+              }
+            </script>
+            </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <p>Lorem ipsum dolor sit.</p>
+                <form>
+                    <div class="form-group">
+                    <label for="Nama">Nama:</label>
+                    <input type="text" class="form-control" id="nama" />
+                    <label for="Gender">Gender:</label>
+                    <select class="form-control" id="gender">
+                        <option value="Laki-Laki">Laki - Laki</option>
+                        <option value="Perempuan">Perempuan</option>
+                    </select>
+                    </div>
+                </form>
+                <button class= "btn-primary" onclick="tambah()">Tambah </button> 
+            </div>
+        </div>
+        </div>
+    </div>
